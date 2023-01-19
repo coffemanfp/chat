@@ -1,0 +1,143 @@
+.sign-in {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: white;
+    display: flex;
+    border-radius: 10px;
+
+    .sign-in__image-section {
+        flex-basis: 60%;
+        background-color: #e1f0ff;
+        border-radius: 0 10px 10px 0;
+    }
+    
+    .sign-in__form-section {
+        position: relative;
+        flex-basis: 40%;
+        max-width: 450px;
+        padding: 100px;
+    }
+
+    .sign-in__signature, .sign-in__app-name {
+        position: absolute;
+        left: 40px;
+    }
+
+    .sign-in__signature {
+        color: gray;
+        bottom: 20px;
+    }
+
+    .sign-in__app-name {
+        top: 20px;
+        font-size: 1.4rem; 
+        font-family: 'Leckerli One', cursive;
+    }
+    
+    .sign-in__form-section, .sign-in__image-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .sign-in__image {
+        border-radius: 50%;
+    }
+}
+
+.sign-in-form {
+    .sign-in-form__form {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .sign-in-form__title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    
+    .sign-in-form__description {
+        color: gray;
+        margin-bottom: 30px;
+    }
+
+    .sign-in-form__label {
+        display: inline-block;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .sign-in-form__label--inline {
+        width: 40%;
+    }
+
+    .sign-in-form__raw-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .sign-in-form__raw-container > * {
+        flex-basis: 50%;
+    }
+
+    .sign-in-form__raw-container > * {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .sign-in-form__raw-container > *:last-child {
+        margin-right: 0px;
+    }
+    .sign-in-form__raw-container > *:first-child {
+        margin-left: 0px;
+    }
+
+    .sign-in-form__input {
+        font-size: 1.05rem;
+        border-radius: 10px;
+        border: 1px solid #d5d5d5;
+        padding: 14px 16px;
+        height: 54px;
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+
+    .sign-in-form__input-error {
+        animation-name: input-error-display;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        color: rgb(255, 81, 0);
+    }
+
+    .sign-in-form__submit {
+        background-color: #7E56DA;
+        color: white;
+        padding: 10px;
+        width: 100%;
+        margin-top: 30px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .sign-in-form__suggestion {
+        font-size: .9rem;
+        color: gray;
+        text-align: center;
+    }
+    .sign-in-form__link {
+        border: none;
+        background-color: transparent;
+        color: #7E56DA;
+    }
+
+}
+
+@keyframes input-error-display {
+    from {
+        font-size: 0rem;
+    }
+    to {
+        font-size: .8rem;
+    }
+}
