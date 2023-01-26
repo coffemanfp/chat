@@ -1,10 +1,5 @@
 .sign-in {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: white;
     display: flex;
-    border-radius: 10px;
 
     .sign-in__image-section {
         flex-basis: 60%;
@@ -16,7 +11,7 @@
         position: relative;
         flex-basis: 40%;
         max-width: 450px;
-        padding: 100px;
+        padding: 70px;
     }
 
     .sign-in__signature, .sign-in__app-name {
@@ -68,6 +63,9 @@
         margin-top: 20px;
         width: 100%;
     }
+    .sign-in-form__label:last-of-type {
+        margin-bottom: 30px;
+    }
 
     .sign-in-form__label--inline {
         width: 40%;
@@ -96,8 +94,8 @@
         font-size: 1.05rem;
         border-radius: 10px;
         border: 1px solid #d5d5d5;
-        padding: 14px 16px;
-        height: 54px;
+        padding: 12px 14px;
+        height: 48px;
         width: 100%;
         margin-top: 10px;
         box-sizing: border-box;
@@ -115,9 +113,26 @@
         color: white;
         padding: 10px;
         width: 100%;
-        margin-top: 30px;
         border: none;
         border-radius: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sign-in-form__submit.sign-in-form__submit--google {
+        background-color: white;
+        color: #3c4043;
+        font-family: 'Google Sans', arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        border: 2px solid #dadce0;
+    }
+    .sign-in-form__submit-icon {
+        height: 16px;
+        width: 16px;
+        margin-right: 5px;
     }
 
     .sign-in-form__suggestion {
@@ -126,9 +141,8 @@
         text-align: center;
     }
     .sign-in-form__link {
-        border: none;
-        background-color: transparent;
         color: #7E56DA;
+        text-decoration: none;
     }
 
 }

@@ -1,0 +1,13 @@
+.app {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white;
+  border-radius: 10px;
+
+  > * {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+  }
+}
