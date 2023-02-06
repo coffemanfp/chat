@@ -23,7 +23,6 @@ create table if not exists external_user_auth (
 
 create table if not exists user_session (
     id varchar unique not null,
-    tmp_id varchar unique,
     user_id integer not null,
     logged_at timestamp not null,
     last_seen_at timestamp not null,

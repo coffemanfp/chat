@@ -94,16 +94,16 @@ func (u AuthRepository) SignUp(user users.User, session auth.Session) (id int, e
 func (u AuthRepository) UpsertSession(session auth.Session) (err error) {
 	qInsertSession := `
 		insert into
-			user_session(id, tmp_id, user_id, logged_at, last_seen_at, logged_with, actived)
+			user_session(id, user_id, logged_at, last_seen_at, logged_with, actived)
 		values
-			($1, $2, $3, $4, $5, $6, $7)
+			($1, $2, $3, $4, $5, $6)
 		on conflict (user_id, actived) do update set
-			last_seen_at=$5, tmp_id = null
+			last_seen_at=$4
 		where
-			user_session.user_id=$3 and user_session.actived;
+			user_session.user_id=$2 and user_session.actived;
 	`
 
-	_, err = u.db.Exec(qInsertSession, session.ID, session.TmpID, session.UserID, session.LoggedAt, session.LastSeenAt, session.LoggedWith, session.Actived)
+	_, err = u.db.Exec(qInsertSession, session.ID, session.UserID, session.LoggedAt, session.LastSeenAt, session.LoggedWith, session.Actived)
 	if err != nil {
 		err = fmt.Errorf("failed to insert session of %d: %s", session.UserID, err)
 	}

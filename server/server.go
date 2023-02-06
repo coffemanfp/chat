@@ -39,7 +39,11 @@ func NewServer(conf config.ConfigInfo, db database.Database, host string, port i
 
 	return &Server{
 		srv: &http.Server{
-			Handler:      r,
+			Handler: muxhandlers.CORS(
+				muxhandlers.AllowedHeaders([]string{"content-type"}),
+				muxhandlers.AllowedOrigins([]string{"*"}),
+				muxhandlers.AllowCredentials(),
+			)(r),
 			Addr:         fmt.Sprintf("%s:%d", host, port),
 			WriteTimeout: 30 * time.Second,
 			ReadTimeout:  30 * time.Second,
@@ -57,7 +61,6 @@ func setUpAPIHandlers(r *mux.Router) {
 func setUpMiddlewares(r *mux.Router, conf config.ConfigInfo) {
 	r.Use(logginMiddleware)
 	r.Use(muxhandlers.RecoveryHandler(muxhandlers.PrintRecoveryStack(true)))
-	r.Use(muxhandlers.CORS(muxhandlers.AllowedOrigins(conf.Server.AllowedOrigins)))
 }
 
 func setUpAuthHandlers(r *mux.Router, conf config.ConfigInfo, db database.Database) {
@@ -73,5 +76,5 @@ func setUpAuthHandlers(r *mux.Router, conf config.ConfigInfo, db database.Databa
 		conf,
 	)
 
-	r.HandleFunc("/auth/{action}/{handler}", ah.HandleAuth).Methods("GET", "POST")
+	r.HandleFunc("/auth/{action}", ah.HandleAuth).Methods("POST")
 }

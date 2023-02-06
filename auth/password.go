@@ -11,7 +11,7 @@ import (
 //  @return $1 string: password encrypted.
 //  @return $2 error: bcrypt encryptation error.
 func HashPassword(password string) (string, error) {
-	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.MinCost)
 	if err != nil {
 		err = fmt.Errorf("failed to generate password: %s", err)
 	}

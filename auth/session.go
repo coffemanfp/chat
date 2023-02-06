@@ -11,11 +11,7 @@ import (
 type Session struct {
 	ID string `json:"id,omitempty"`
 
-	// TmpID is the just one use ID sent to the client when a new sign in is performed.
-	// This ID just must be sent when the client perform the first call to a auth-required route.
-	// When the first call is perfomed, the Session.ID must be user for the forward calls.
-	TmpID  string `json:"tmp_id,omitempty"`
-	UserID int    `json:"user_id,omitempty"`
+	UserID int `json:"user_id,omitempty"`
 
 	// First time that the user has been sign.
 	LoggedAt time.Time `json:"logged_at,omitempty"`
@@ -42,17 +38,9 @@ func NewSession(userID int, loggedWith string) (session Session, err error) {
 		return
 	}
 
-	// Generate a new encrypted temp ID of just one use.
-	tmpID, err := HashPassword(fmt.Sprint(uuid.NewString(), sessionID))
-	if err != nil {
-		return
-	}
-
 	now := time.Now()
-
 	session = Session{
 		ID:         sessionID,
-		TmpID:      tmpID,
 		UserID:     userID,
 		LoggedWith: loggedWith,
 		LoggedAt:   now,

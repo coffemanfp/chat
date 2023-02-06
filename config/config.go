@@ -19,6 +19,7 @@ type server struct {
 	Port           int      `yaml:"port"`
 	Host           string   `yaml:"host"`
 	AllowedOrigins []string `yaml:"allowed_origins"`
+	SecretKey      string   `yaml:"secret_key"`
 }
 
 type oauth struct {

@@ -43,6 +43,7 @@ func newConfigWithEnvVars() (conf ConfigInfo, err error) {
 			Port:           srvPort,
 			Host:           os.Getenv("SRV_HOST"),
 			AllowedOrigins: strings.Split(os.Getenv("SRV_ALLOWED_ORIGINS"), ";"),
+			SecretKey:      os.Getenv("SRV_SECRET_KEY"),
 		},
 		OAuth: oauth{
 			Google: oauthProperties{
