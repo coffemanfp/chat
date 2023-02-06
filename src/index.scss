@@ -9,11 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #D3D0DF;
-  // min-height: 100vh;
-  overflow-x: hidden;
-  padding: 50px 10% 50px 10%;
-  box-sizing: border-box;
 }
 
 code {
@@ -28,4 +23,8 @@ code {
 
 button:hover {
   cursor: pointer;
+}
+
+p {
+  margin: 0;
 }
