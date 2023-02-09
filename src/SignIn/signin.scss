@@ -1,24 +1,43 @@
 .sign-in {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: white;
+    position: relative;
+    background: linear-gradient(217deg, rgba(206, 108, 255, 0.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(117, 149, 255, 0.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(119, 119, 255, 0.8), rgba(0,0,255,0) 70.71%);
     display: flex;
-    border-radius: 10px;
+    border-radius: 20px;
+
+    .sign-in__form-section {
+        position: absolute;
+        justify-content: center;
+        top: -30px;
+        left: -30px;
+        z-index: 1;
+        height: 100%;
+        max-width: 500px;
+        padding: 0 60px 0 60px;
+        background-color: white;
+        border-radius: 20px;
+        box-sizing: border-box;
+        background: linear-gradient(129.04deg, rgba(255, 255, 255, 0.8) 7.66%, rgba(255, 255, 255, 0.3) 88.71%);
+        box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(20px);
+    }
+
+    .sign-in__form-simulator {
+        height: 100%;
+        flex-basis: 40%;
+        min-width: 400px;
+        max-width: 500px;
+    }
 
     .sign-in__image-section {
+        justify-content: center;
+        box-sizing: border-box;
+        height: 100%;
+        border-radius: 20px;
         flex-basis: 60%;
-        background-color: #e1f0ff;
-        border-radius: 0 10px 10px 0;
     }
     
-    .sign-in__form-section {
-        position: relative;
-        flex-basis: 40%;
-        max-width: 450px;
-        padding: 100px;
-    }
-
     .sign-in__signature, .sign-in__app-name {
         position: absolute;
         left: 40px;
@@ -26,18 +45,17 @@
 
     .sign-in__signature {
         color: gray;
-        bottom: 20px;
+        bottom: 30px;
     }
 
     .sign-in__app-name {
-        top: 20px;
+        top: 30px;
         font-size: 1.4rem; 
         font-family: 'Leckerli One', cursive;
     }
     
     .sign-in__form-section, .sign-in__image-section {
         display: flex;
-        justify-content: center;
         align-items: center;
     }
     
@@ -47,6 +65,8 @@
 }
 
 .sign-in-form {
+    color: rgba($color: #000000, $alpha: .65);
+
     .sign-in-form__form {
         width: 100%;
         max-width: 320px;
@@ -54,19 +74,24 @@
 
     .sign-in-form__title {
         font-size: 1.6rem;
+        color: rgba($color: #000000, $alpha: .65);
         font-weight: bold;
         margin-bottom: 20px;
     }
     
     .sign-in-form__description {
-        color: gray;
+        color: rgba($color: #000000, $alpha: .5);
         margin-bottom: 30px;
     }
 
     .sign-in-form__label {
         display: inline-block;
-        margin-top: 20px;
+        margin-bottom: 20px;
         width: 100%;
+    }
+
+    .sign-in-form__label:last-of-type {
+        margin-bottom: 30px;
     }
 
     .sign-in-form__label--inline {
@@ -76,9 +101,14 @@
     .sign-in-form__raw-container {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 20px;
+
+        .sign-in-form__label {
+            flex-basis: 50%;
+            margin-bottom: 0px;
+        }
     }
     .sign-in-form__raw-container > * {
-        flex-basis: 50%;
     }
 
     .sign-in-form__raw-container > * {
@@ -96,10 +126,11 @@
         font-size: 1.05rem;
         border-radius: 10px;
         border: 1px solid #d5d5d5;
-        padding: 14px 16px;
-        height: 54px;
+        padding: 12px 20px;
+        height: 60px;
         width: 100%;
         margin-top: 10px;
+        background-color: rgba(255, 255, 255, 0.3);
         box-sizing: border-box;
     }
 
@@ -109,15 +140,32 @@
         animation-fill-mode: forwards;
         color: rgb(255, 81, 0);
     }
-
+    
     .sign-in-form__submit {
         background-color: #7E56DA;
         color: white;
         padding: 10px;
         width: 100%;
-        margin-top: 30px;
         border: none;
         border-radius: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sign-in-form__submit.sign-in-form__submit--google {
+        background-color: white;
+        color: #3c4043;
+        font-family: 'Google Sans', arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        border: 2px solid #dadce0;
+    }
+    .sign-in-form__submit-icon {
+        height: 16px;
+        width: 16px;
+        margin-right: 5px;
     }
 
     .sign-in-form__suggestion {
@@ -126,9 +174,8 @@
         text-align: center;
     }
     .sign-in-form__link {
-        border: none;
-        background-color: transparent;
         color: #7E56DA;
+        text-decoration: none;
     }
 
 }

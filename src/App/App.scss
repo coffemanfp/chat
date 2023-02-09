@@ -1,0 +1,63 @@
+.app {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #d3d0df;
+  box-sizing: border-box;
+
+  .app__content {
+    position: fixed;
+    top: 50px;
+    right: 8%;
+    bottom: 50px;
+    left: 8%;
+    border-radius: 10px;
+
+    > *:not(.alert) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.app--error-flash {
+    animation-name: app-error-flash;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes app-error-flash {
+  25% {
+    background-color: #F93B55;
+  }
+
+  50% {
+  background-color: #d3d0df;
+  }
+
+  75% {
+    background-color: #F93B55;
+  }
+
+  100% {
+  background-color: #d3d0df;
+  }
+}
+
+.alert {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 80px;
+  right: 12%;
+  left: 12%;
+  background-color: #F93B55;
+  border: 1px solid #c4001a;
+  border-radius: 10px;
+  padding: 18px;
+  color: white;
+  font-weight: bold;
+}
